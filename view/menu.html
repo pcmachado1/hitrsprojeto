@@ -1,0 +1,50 @@
+<html ng-app="welcomeApp">
+<head>
+    <script src="../utils/js/angular.js"></script>
+    <script src="../utils/js/angular-animate.min.js"></script>
+    <script src="../utils/js/angular-aria.min.js"></script>
+    <script src="../utils/js/angular-material.min.js"></script>
+    <script src="../utils/js/angular-messages.min.js"></script>
+    <script src="../utils/js/welcome.js"></script>
+    <script src="../utils/datagrid/pagination.min.js"></script>
+    <script src="../utils/datagrid/dataGrid.min.js"></script>
+    <link rel="stylesheet" href="../utils/css/angular-material.css">
+    <link rel="stylesheet" href="../utils/css/angular-data-grid.material.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-blue.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
+    <script src="../utils/js/ng-file-upload.js"></script>
+</head>
+<body ng-controller="welcomeCtrl" ng-init="metodoSession()" >
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        
+          
+        <md-menu>
+        <!-- Trigger element is a md-button with an icon -->
+        <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open sample menu">
+          <i class="material-icons">menu</i>
+        </md-button>
+        <md-menu-content>
+          <md-menu-item><md-button ng-click="home()">Home</md-button></md-menu-item>
+          <md-menu-item><md-button ng-click="doSomething()">Localizações</md-button></md-menu-item>
+          <md-menu-item><md-button ng-click="logout()">Sair</md-button></md-menu-item>
+        </md-menu-content>
+        
+       </md-menu>  
+          
+        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+          <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+        </md-button>
+
+        <h2 flex md-truncate></h2>
+
+        <md-button class="md-icon-button" aria-label="Favorite">
+          <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button" aria-label="More">
+          <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>

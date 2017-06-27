@@ -1,0 +1,136 @@
+<html ng-app="app">
+<head>
+     <script src="https://maps.google.com/maps/api/js?libraries=placeses,visualization,drawing,geometry,places&key=AIzaSyDvuiU-Vrf_qI7g0bJOsMh-2PWeBg7nufc"></script>
+    <script src="../hirts/utils/js/angular.js"></script>
+    <script src="../hirts/utils/js/angular-animate.min.js"></script>
+    <script src="../hirts/utils/js/angular-aria.min.js"></script>
+    <script src="../hirts/utils/js/angular-material.min.js"></script>
+    <script src="../hirts/utils/js/angular-messages.min.js"></script>
+    <script src="../hirts/utils/js/tstAngular.js"></script>
+    <script src="../hirts/utils/js/lf-ng-md-file-input.js"></script>
+    <script src="../hirts/utils/js/ng-file-upload.js"></script>
+    <script src="../hirts/utils/ngMask/dist/ngMask.min.js"></script>
+    <script src="../hirts/utils/js/ng-map.min.js"></script>
+    
+    <link rel="stylesheet" href="../hirts/utils/css/angular-material.css">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+</head>
+<body>
+ <form name="loginForm" >
+      
+     <div ng-controller="teste" layout="column" layout-align="center center" name="center"  ng-cloak>
+        <div layout-align="center end" name="center">
+         
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Email</label>
+                <input type="email" name="email" required ng-model="email" md-no-asterisk />
+            <div ng-messages="loginForm.email.$error" style="color:maroon" role="alert">
+              <div ng-message="required">Preencha o campo</div>
+            </div>
+            <div ng-messages="loginForm.email.$error" style="color:maroon" role="alert">
+              <div ng-message="email">Digite um email valido</div>
+            </div>
+            </md-input-container>
+                <md-button class="md-raised md-primary" type="file" ngf-select="uploadFiles($file,$invalidFiles)" accept="image/*">select</md-button>
+               <!--<input type='text' name="cep" ng-model='cep' mask='31/19/9999' />
+               <input type='email' name="email" ng-model='email' required/>
+               <br>
+                <span class="error" ng-show="loginForm.email.$error.required">
+        Required!
+      </span>-->
+      <span class="error" ng-show="loginForm.email.$error.email">
+        Not a valid email!
+      </span>
+               <br>
+    	{{cep}}
+        <span>LoginForm</span>{{loginForm.email}}<br>
+        <span>loginForm.email.$viewValue = </span>{{loginForm.email.$viewValue}}<br>
+        <span>loginForm.email.$modelValue = </span>{{loginForm.email.$modelValue}}<br>
+        <span>loginForm.email.$validators = </span>{{loginForm.email.$validators}}<br>
+        <span>loginForm.email.$asyncValidators = </span>{{loginForm.email.$asyncValidators}}<br>
+        <span>loginForm.email.$parsers = </span>{{loginForm.email.$parsers}}<br>
+        <span>loginForm.email.$formatters = </span>{{loginForm.email.$formatters}}<br>
+        <span>loginForm.email.$viewChangeListeners = </span>{{loginForm.email.$viewChangeListeners}}<br>
+        <span>loginForm.email.$untouched = </span>{{loginForm.email.$untouched}}<br>
+        <span>loginForm.email.$touched = </span>{{loginForm.email.$touched}}<br>
+        <span>loginForm.email.$pristine = </span>{{loginForm.email.$pristine}}<br>
+        <span>loginForm.email.$dirty = </span>{{loginForm.email.$dirty}}<br>
+        <span>loginForm.email.$valid = </span>{{loginForm.email.$valid}}<br>
+        <span>loginForm.email.$invalid = </span>{{loginForm.email.$invalid}}<br>
+        <span>loginForm.email.$error = </span>{{loginForm.email.$error}}<br>
+        <span>loginForm.email.$error.email = </span>{{!!loginForm.email.$error.email}}<br>
+        <span>loginForm.email.$error.required = </span>{{!!loginForm.email.$error.required}}<br>
+        <span>loginForm.email.$name = </span>{{loginForm.email.$name}}<br>
+        <span>loginForm.email.$options = </span>{{loginForm.email.$options}}<br>
+        
+              
+        </div>
+       
+         <div ng-init="">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>endereco</label>
+                <input type="text"  ng-model="endereco" ng-change="testeGoogle()" />
+            
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>rua</label>
+                <input type="text"  ng-model="rua" ng-change="testeGoogle()" />
+            
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>bairro</label>
+                <input type="text"  ng-model="bairro" ng-change="testeGoogle()" />
+            
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>cidade</label>
+                <input type="text"  ng-model="cidade" ng-change="testeGoogle()" />
+            
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>estado</label>
+                <input type="text"  ng-model="estado" ng-change="testeGoogle()" />
+            
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>pais</label>
+                <input type="text"  ng-model="pais" ng-change="testeGoogle()" />
+            
+            </md-input-container>
+             <md-button class="md-raised md-primary" ng-click="testeGoogle()" accept="image/*">select</md-button>
+             <div>
+                 <ng-map zoom="20" center="[{{location.lat}},{{location.lng}}]" map-type-id="SATELLITE" tilt="45" style="height:600px; width: 600px"
+                on-center-changed="centerCustomMarker()">
+
+                <marker position="[{{location.lat}},{{location.lng}}]" title="Casa da vovo ilzaaaaa!"></marker>
+
+
+                </ng-map>
+             </div>
+            
+        </div>
+         dado digitado={{endereco}}
+         endereco completo = {{enderecoCompleto}}
+         cordenadas = {{location}}
+         [{{location.lat}},{{location.lng}}]
+    </div>
+    
+    <!-- <div ng-controller="MyCtrl as vm">
+        <md-input-container class="md-block" flex-gt-sm>
+                <label>endereco</label>
+                <input type="text"  ng-model="endereco"  />
+            
+        </md-input-container>
+      <ng-map zoom="20" center="{{endereco}}" style="height:600px"
+        on-center-changed="centerCustomMarker()">
+        
+       <marker position="{{endereco}}" title="Hello World!"></marker>
+          
+       
+      </ng-map>
+         endereco={{endereco}}
+        </div>
+     -->
+ </form>
+</body>
+</html>

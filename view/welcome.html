@@ -1,0 +1,36 @@
+
+ <form name="loginForm">
+      
+    
+    
+    
+     
+    <div layout="column" class="welcome" layout-align="center center" flex="200" ng-cloak>
+      <div name="center">
+      <h1>Welcome {{sessao.nome+" "+sessao.sobrenome}}</h1>
+        
+       </div>
+        <div> 
+            <md-card md-theme="" md-theme-watch>
+             <md-card-title>
+               <md-card-title-text>
+                 <span class="md-headline">Perfil</span>
+                 <span class="md-subhead">Nome: {{sessao.nome}}</span>
+                 <span class="md-subhead">Sobrenome: {{sessao.sobrenome}}</span>
+                 <span class="md-subhead">Email: {{sessao.email}}</span>
+                 <span class="md-subhead">Login: {{sessao.login}}</span>
+               </md-card-title-text>
+               <md-card-title-media >
+                   <div class="md-media-sm card-media"><img  ng-src="../hirts/images/{{sessao.image}}" class="md-card-image" alt="Learn HTML5"></div>
+               </md-card-title-media>
+             </md-card-title>
+             <md-card-actions layout="row" layout-align="center center">
+                 <md-button ng-click="atualizarPerfilModal($event)">Atualizar Perfil</md-button>
+               {{status}}
+             </md-card-actions>
+             </md-card> 
+        </div>
+    </div>
+ </form>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<html ng-app="app">
+<head>
+    <script src="../hirts/utils/js/angular.js"></script>
+    <script src="../hirts/utils/js/angular-animate.min.js"></script>
+    <script src="../hirts/utils/js/angular-aria.min.js"></script>
+    <script src="../hirts/utils/js/angular-material.min.js"></script>
+    <script src="../hirts/utils/js/angular-messages.min.js"></script>
+    <script src="../hirts/utils/js/layout.js"></script>
+    <link rel="stylesheet" href="../hirts/utils/css/angular-material.css">
+    <script src="../hirts/utils/js/ng-file-upload.js"></script>
+</head>
+<body>
+    
+ <form name="loginForm">
+      
+    <div ng-controller="teste" layout="row" layout-align="center center"  ng-cloak>
+        <div style="border: solid">
+             <h1>a</h1>
+            <h1>b</h1>
+            <h1>c</h1>
+            <h1>d</h1>
+        </div>
+        <div layout="column" layout-align="center" style="border: solid">
+           <md-input-container class="md-block" flex-gt-sm>
+                <label>Usuario</label>
+                <input name="txtUsuario" required ng-model="login.usuario" md-no-asterisk />
+            <div ng-messages="loginForm.txtUsuario.$error" style="color:maroon" role="alert">
+              <div ng-message="required">Preencha o campo</div>
+            </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Senha</label>
+                <input name="txtSenha" type="password" required ng-model="login.senha" md-no-asterisk />
+           <div ng-messages="loginForm.txtSenha.$error" style="color:maroon" role="alert">
+              <div ng-message="required">Preencha o campo</div>
+            </div>
+            <div>{{msg}}</div>
+            </md-input-container>
+            <md-button class="md-raised md-primary" ng-disabled="loginForm.$invalid" ng-click="metodoTeste(login)">
+                     Efetuar Login
+            </md-button>
+        </div>
+        <div layout="row" style="background-color: yellow">
+            <h1>a</h1>
+            <h1>b</h1>
+            <h1>c</h1>
+            <h1>d</h1>
+        </div>
+        <div layout="column" style="background-color: yellow">
+            <h1>a</h1>
+            <h1>b</h1>
+            <h1>c</h1>
+            <h1>d</h1>
+        </div>
+        <div layout="column" style="background-color: yellow">
+            <h1>a</h1>
+            <h1>b</h1>
+            <h1>c</h1>
+            <h1>d</h1>
+        </div>
+        <div layout="column" style="background-color: yellow">
+            <h1>a</h1>
+            <h1>b</h1>
+            <h1>c</h1>
+            <h1>d</h1>
+        </div>
+        
+    	
+    </div>
+ </form>
+</body>
+</html>
